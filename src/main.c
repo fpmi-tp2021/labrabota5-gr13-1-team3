@@ -1,32 +1,31 @@
+#include <string.h>
 #include <stdio.h>
+#include <locale.h>
+#include "../include/MusicManager.h"
 #include <sqlite3.h>
 
-int main(){
-	char* userName;
-	char* password;
-	printf("Enter your name: ");
-	scanf("%s", &userName);
-	printf("Enter password: ");
-	scanf("%s", &password);
-	printf("Hello %s \n Wellcome to database Music-Salon!", userName);
+int main() {
+	setlocale(LC_ALL, "rus");
+	sqlite3 * db = NULL;
+	int isAdmin = Authorization();
 
-	do{
+	do {
 		int choise;
-	
-		printf("Choose Command\n");
-		printf("... 0 - exit");
+		printf("\nChoose Command\n");
+		isAdmin ? printCommands(adminCommands, ADMIN_FUN_COUNT) : printCommands(userCommands, USER_FUN_COUNT);
+
 		scanf("%d", &choise);
-		switch(choise){
-			case 1:{
-			       
-			       }
-			case 2:{
-			       }
-			default: break;
+
+		if (choise == EXIT_CHOISE) 
+			break;
+		if (!isAdmin && choise > USER_FUN_COUNT) {
+			printf("Invalid Comand");
+			continue;
 		}
 
-	}while(1);
-	
+		Function[isAdmin][choise - 1](db);		
+	} while (1);
+
 	printf("Exit...\n");
 	return 1;
 }
