@@ -36,7 +36,7 @@ void CountOfSoldAndRemainingCD_Ordered(sqlite3 *db) {
 	char requestBuffer[255];
 	char* errorMsg = 0;
 
-	sprintf(requestBuffer, "DELETE FROM producer_info WHERE id=%d;");
+	sprintf(requestBuffer, "DELETE FROM producer_info WHERE id=1;");
 	if (sqlite3_exec(db, requestBuffer, callback, 0, &errorMsg))
 		printf("%s", errorMsg);
 }
@@ -123,7 +123,7 @@ void Insert(sqlite3 *db){
 	scanf("%d", Compact_Disk_info_ID);
 
 	sprintf(requestBuffer, "INSERT INTO producer_info (author, signer, name, Compact_Disk_info_ID)"
-		"VALUES ('%s', '%s', %d, '%d');", author, signer, name, Compact_Disk_info_ID);
+		"VALUES ('%s', '%s', %s, '%d');", author, signer, name, Compact_Disk_info_ID);
 	
 	if (sqlite3_exec(db, requestBuffer, callback, 0, &errorMsg))
 		printf("%s", errorMsg);
