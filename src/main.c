@@ -6,7 +6,7 @@
 
 int main() {
 	setlocale(LC_ALL, "rus");
-	sqlite3 * db = NULL;
+	sqlite3 * db = sqlite3_open("Music_Salon_DB.db", &db);
 	int isAdmin = Authorization();
 
 	do {
