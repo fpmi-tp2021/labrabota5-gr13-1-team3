@@ -120,7 +120,7 @@ void Insert(sqlite3 *db){
 	printf("Enter name: ");
 	scanf("%s", name);
 	printf("Enter Compact_Disk_info_ID: ");
-	scanf("%d", Compact_Disk_info_ID);
+	scanf("%d", &Compact_Disk_info_ID);
 
 	sprintf(requestBuffer, "INSERT INTO producer_info (author, signer, name, Compact_Disk_info_ID)"
 		"VALUES ('%s', '%s', %s, '%d');", author, signer, name, Compact_Disk_info_ID);
