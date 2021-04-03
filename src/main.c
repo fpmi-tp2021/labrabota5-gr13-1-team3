@@ -7,7 +7,7 @@
 int main() {
 	setlocale(LC_ALL, "rus");
 	sqlite3 * db;
-    	if (sqlite3_open("..\doc\DB_Source\Music_Salon_DB.db", &db)) {
+    	if (sqlite3_open("../doc/DB_Source/Music_Salon_DB.db", &db)) {
        		 printf("Cant open db!\n");
        		 return -1;
    	}
