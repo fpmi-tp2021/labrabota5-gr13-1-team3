@@ -14,10 +14,10 @@ int Authorization() {
 	char userName[51], password[51];
 
 	printf("Enter your name: ");
-	scanf("%s", &userName);
+	scanf("%s", userName);
 	userName[50] = '\0';
 	printf("Enter password: ");
-	scanf("%s", &password);
+	scanf("%s", password);
 	password[50] = '\0';
 	int isAdmin = !strcmp(password, adminPassword);
 	char* rights = isAdmin ? "admin" : "user";
