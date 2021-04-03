@@ -4,7 +4,7 @@ CFLAGS=-c -o
 OBJECTS=obj/main.o obj/MusicManager.o
 
 bin/MusicSalon: $(OBJECTS)
-	$(CC) -o bin/MusicSalon $(OBJECTS)
+	$(CC) -o bin/MusicSalon $(OBJECTS) -lsqlite3
 
 obj/main.o: src/main.c
 	$(CC) $(CFLAGS) obj/main.o src/main.c
